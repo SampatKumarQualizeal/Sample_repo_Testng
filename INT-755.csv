@@ -1,0 +1,138 @@
+Action,Data,Expected Result
+Launch Browser → Goto URL & login with valid credentials,[http://www.stage.astm.org|http://www.stage.astm.org],User should navigate to My ASTM home page
+Go to Standards & Solutions -> Laboratory Services -> Proficiency Testing Program,,User should navigate to Proficiency Testing Program page
+"Add any PTP to cart. Steps: -
+
+Click on Register for a Program → Scroll down on the page & Check any of the listed PTP program -> Click on Register For this Program button",,"Page should automatically get scroll up and display a confirmation message stating
+""*You added Product/s to your shopping cart*."""
+"Remove Product from Cart and add a new PTP to cart. 
+
+Steps: -
+
+Goto Cart Page → Click on Delete to Remove product from Cart
+
+Again, Go to Standards & solutions -> Laboratory Services -> Proficiency Testing
+
+Click on any link under Proficiency Testing programs.
+
+Click on Register for this Program button",,"On Delete, Product should get removed & Cart page should show *Your cart is empty*
+
+Again after clicking on Register for this program button, user should get confirmation message like ""You added <Program name>your shopping cart."
+Verify the Product name and cost of the product in the Cart page,,The product name and cost displayed on the Cart page should exactly match the product name and cost shown on the specific product page.
+"Verify User is not able to add more than 1 quantity for the specific program in cart page.Steps:-
+
+# Change quantity field on cart page from 1 to 2.
+# Click on ""Update quantity"" button",,"User should get a below pop up message:-
+""Only 1 PTP program allowed in the cart"""
+"Again, Go to Standards & solutions -> Laboratory Services -> Proficiency Testing
+
+Click on any link under Proficiency Testing programs.
+
+Click on Register for this Program button",,Product should be added to the cart
+"On Clicking Checkout button user navigates to the ""Terms"" page",,"User should be navigated to ""Ptp Terms "" page."
+"When User click "" Accept Terms"" on Ptp Terms Page.",,User should land on create account page.
+"Now fill all the mandatory data on ""Create an Account""page and click on ""Create Account"" button",,"After clicking on ""Create Account"" button user should land on Billing Page."
+"Now on Billing page Select any Non-Prepaid country other than U.S. from the country drop-down menu and select ""Ship to same address and different contact person"". Click on ""Continue"" button",Eg: Australia,"On clicking Continue button User should navigate to the ""Contact Person"" page"
+Verify Billing page for hazardous product.,,"User should get blow warning message for hazardous product.
+
+""One or more of the products in your cart contains a hazardous material. Many shippers have specific regulations about shipping hazardous materials. DHL specifically has strict regulations about shipping hazardous materials. Please check with your shipper to make sure you are in compliance with regulations."""
+Verify warning message for international shipping required product.,,"User  should get below warning message for international shipping required product.
+
+""One or more of the programs that you have selected requires either a freight forwarder or a shipping courier service in order to ship the products internationally. Please add either type of shipper. You can still proceed on this site without purchasing the above products."""
+"On the  ""Contact Person"" page fill the required fields and click on ""Continue"" button.",,"On clicking ""Continue"" button user should navigate to the ""Third Party Shipping Information"" page"
+"""Third Party Shipping Information"" page should be displayed based on the below functionality.
+
+|| ||*International Shipping*||*Billing/Shipping Address*||*Form*||
+|Scenario 1|C|US|* No FF or Courier information needed|
+|Scenario 2|CA|Out of US|FF OR Courier (UPS, DHL or FEDEX)
+* FF is selected courier is greyed out
+* If courier service is selected, FF is greyed out|
+|Scenario 3|C|Out of US|FF OR Courier (UPS, DHL or FEDEX)
+* FF is selected courier is greyed out
+* If courier service is selected, FF is greyed out
+* Includes Puerto Rico|
+|Scenario 4|CA|US|* No FF or Courier information needed|
+|Programs CDA and CDV, TMLC, SAF| | |FF or Courier for US and International shipping
+* FF is selected courier is greyed out
+* If courier service is selected, FF is greyed out
+* Includes Puerto Rico|",,"""Third Party Shipping Information"" page should be displayed successfully."
+"On the ""Third Party Shipping Information"" page, fill the required fields and click on the ""Continue"" button",,"On Clicking Continue button user should navigate to the ""Select Payment Method"" page. Third Party details should be displayed if entered."
+"Select payment method as ""Electronic Funds Transfer"" and give ""PO Number"". Click on the ""Continue button"".",,On clicking Continue button user should navigate to the Payments page
+"Click on the ""Submit Order"" button","If either Billing/shipping address is missing on the organization name, then below pop-up is displayed and order should not be placed.
+
+!xray-attachment://4a823b8a-b6c4-4253-a152-36b0ff68167b|width=561,height=272!",User should land on Order Confirmation page.
+"Verify ""Order Confirmation"" page.",,"Thank you for your order. Please submit your electronic funds transfer using the below bank information. Make sure you reference your account number below.
+
+Please note that this is confirmation that PTP has received your order. Orders that include payment are processed immediately. Orders that do not include payment will not be processed until payment arrangements have been made.
+
+Print out your order receipt:
+
+We are also sending your receipt and other information by e-mail.
+
+‘Order Summary’ label with Order Number and Order Date and time
+
+In Order Summary table below details should be present -
+
+Item as ""product name"" , Quantity as '1' , Price in $, Total Price in $
+
+Subtotal: price value in $
+
+Member Discount: , Shipping: and Tax: price in $
+
+Grand Total: price value in $
+
+In ""Address Information"" - Billing Address should be displayed same as entered on billing address  page
+
+In ""Payment Information"" - PO NUmber , Payment type"
+Verify order confirmation message on registered email id.,,"After submitting order, user should get order confirmation mail on registered email id.
+
+Dear \[Customer First Name] \[Customer Last Name],
+
+Thank you for your order\!
+
+Below is confirmation of your order. We appreciate your business and hope to serve you again.
+
+If you have any questions about your order or need further assistance with your order, please contact us at 877-909-2786 or email us at [support@astm.org|mailto:support@astm.org]. If you have any questions on our return policy, please visit ASTM’s Return Policy.
+
+* Order Number, Order Date/Time
+* Section titled ‘Customer Purchase Instructions’ *is NOT displayed for PTP orders*
+* Billing Address
+* Shipping Address
+* Freight Forwarder (if applicable else it should be blank)
+* Payment Type:
+*# Credit Card - _Sort Order of this information can be changed if necessary._
+*## Credit Carty Type: Ex. Visa
+*## Credit Card Number: ************0000
+*## Expiration Date: *** / ***
+*# ETF
+*## Payment method: EFT - Wire Transfer
+*## PO Number
+*# PO
+*## Payment method: Invoice
+*## PO Number
+* Products Section
+** Items list (Items, Qty, Price)
+*** Item: S01234
+** Subtotal $XX.XX
+** Member Discount, if applicable, if not, do not show a line item for this
+** Shipping&Handling $XX.XX
+** Grand Total (Excl. Tax) $XX.XX
+** Tax $XX.XX
+** Grand Total (Incl. Tax) $XX.XX
+* Thank you,
+* ASTM signature"
+"Verify in Magento EBS Status is ""Success"" for submitted order.
+
+Steps:-
+
+# Login into Magneto.
+# Sales >> Orders >>Edit",,"In Magento EBS Status should be ""Success"" for submitted order."
+"Verify Customer type is Organisation for submitted order.
+
+Steps:-
+
+# Login into Magneto.
+## Sales >> Orders",,"In Magento EBS Status should be ""Success"" for submitted order."
+"Verify user has been successfully created in EBS , Okta , MAE(refer to linked test case).",[https://astm.atlassian.net/browse/INT-620|https://astm.atlassian.net/browse/INT-620],"User should be created successfully in EBS, Okta,MAE."
+Verify order details in EBS portal.,[https://astm.atlassian.net/browse/INT-1540|https://astm.atlassian.net/browse/INT-1540],User should be able to validate order details in EBS portal.
+Verify that order has been successfully created in EBS(refer to linked test case),[https://astm.atlassian.net/browse/INT-623|https://astm.atlassian.net/browse/INT-623].,Order should be created successfully in EBS.
